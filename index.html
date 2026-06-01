@@ -258,6 +258,47 @@ canvas{width:100%;height:580px;display:block;border-radius:8px;cursor:grab;backg
   .sim-config .computed{flex-direction:column}
 }
 
+/* LANGUAGE TOGGLE */
+.lang-toggle{display:inline-flex;border:.5px solid rgba(122,111,92,.3);border-radius:6px;overflow:hidden;margin-left:.5rem}
+.lang-btn{font-size:.7rem;font-weight:500;color:#9A8F7C;background:transparent;border:none;padding:.4rem .6rem;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:all .2s}
+.lang-btn.active{background:#3D352A;color:#FFFCF5}
+.lang-btn:not(.active):hover{color:#3D352A}
+
+/* ONDE ME DESTACO */
+.highlight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:.5rem}
+.highlight-card{background:rgba(255,253,248,.6);border:.5px solid rgba(122,111,92,.2);border-radius:12px;padding:1.6rem 1.75rem;transition:transform .2s,border-color .2s}
+.highlight-card:hover{transform:translateY(-2px);border-color:rgba(90,133,65,.35)}
+.highlight-icon{width:34px;height:34px;border-radius:8px;background:rgba(90,133,65,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-family:'DM Serif Display',serif;font-size:1.1rem;color:#5A8541}
+.highlight-card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#3D352A;line-height:1.25;margin-bottom:.6rem;font-weight:400}
+.highlight-card p{font-size:.86rem;color:#5A4F3C;line-height:1.65}
+.fit-bar{margin-top:2rem;background:rgba(90,133,65,.07);border:.5px solid rgba(90,133,65,.25);border-radius:10px;padding:1.4rem 1.75rem}
+.fit-bar-label{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#5A8541;font-weight:500;margin-bottom:.7rem}
+.fit-bar-text{font-size:.92rem;color:#3D352A;line-height:1.7}
+.fit-bar-text strong{font-weight:500;color:#3D5C24}
+
+/* CLIENTES */
+.clients-intro{font-size:.95rem;color:#5A4F3C;line-height:1.7;max-width:720px;margin-bottom:2.5rem}
+.cert-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.cert-filter{font-size:.72rem;color:#5A4F3C;background:rgba(255,253,248,.6);border:.5px solid rgba(122,111,92,.28);padding:.45rem .9rem;border-radius:20px;cursor:pointer;font-family:inherit;transition:all .2s;letter-spacing:.02em}
+.cert-filter:hover{border-color:rgba(90,133,65,.45);color:#3D352A}
+.cert-filter.active{background:#5A8541;color:#FFFCF5;border-color:#5A8541}
+.cert-count{font-size:.62rem;opacity:.7;margin-left:.35rem}
+.clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.85rem}
+.client-card{background:rgba(255,253,248,.55);border:.5px solid rgba(122,111,92,.18);border-radius:9px;padding:1rem 1.15rem;transition:opacity .25s,transform .2s,border-color .2s}
+.client-card:hover{border-color:rgba(90,133,65,.35);transform:translateY(-1px)}
+.client-name{font-family:'DM Serif Display',serif;font-size:1.02rem;color:#3D352A;line-height:1.2;margin-bottom:.55rem}
+.client-certs{display:flex;flex-wrap:wrap;gap:.3rem}
+.client-cert{font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;padding:.2rem .5rem;border-radius:8px;background:rgba(122,111,92,.1);color:#5A4F3C}
+.client-card.hidden{display:none}
+.clients-note{font-size:.78rem;color:#9A8F7C;font-style:italic;margin-top:1.75rem}
+.clients-scale{display:flex;flex-wrap:wrap;gap:2rem;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:.5px solid rgba(122,111,92,.18)}
+.scale-item{display:flex;flex-direction:column;gap:.25rem}
+.scale-num{font-family:'DM Serif Display',serif;font-size:2rem;color:#5A8541;line-height:1}
+.scale-label{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#9A8F7C;font-weight:500}
+
+/* EVIDENCE LABEL */
+.evidence-tag{display:inline-block;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#5A8541;font-weight:500;margin-bottom:.6rem}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   .about-grid{grid-template-columns:1fr}
@@ -285,39 +326,48 @@ canvas{width:100%;height:580px;display:block;border-radius:8px;cursor:grab;backg
   <div class="nav-inner">
     <div>
       <div class="brand">Rafael Ávila Janz</div>
-      <div class="brand-sub">ESG · Sustainability · Innovation</div>
+      <div class="brand-sub" data-i18n="brand_sub">Engenharia · Sistemas internos para sustentabilidade</div>
     </div>
     <div class="nav-links">
-      <a href="#sobre" class="nav-link">Sobre</a>
-      <a href="#experiencia" class="nav-link">Experiência</a>
-      <a href="#simulador" class="nav-link">Simulador</a>
-      <a href="#posts" class="nav-link">Publicações</a>
-      <a href="#contato" class="nav-cta">Contato</a>
+      <a href="#sobre" class="nav-link" data-i18n="nav_about">Perfil</a>
+      <a href="#destaco" class="nav-link" data-i18n="nav_fit">Onde me destaco</a>
+      <a href="#experiencia" class="nav-link" data-i18n="nav_path">Trajetória</a>
+      <a href="#clientes" class="nav-link" data-i18n="nav_clients">Clientes</a>
+      <a href="#simulador" class="nav-link" data-i18n="nav_evidence">Evidência</a>
+      <a href="#contato" class="nav-cta" data-i18n="nav_contact">Contato</a>
+      <span class="lang-toggle">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </span>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-label">Coordenador · Engenharia · Inovação ESG</p>
-  <h1>Engenharia de impacto para o<br>setor de <em>sustentabilidade</em>.</h1>
-  <p class="hero-lead">Cinco anos coordenando projetos LEED para grandes incorporadoras brasileiras, hoje desenvolvendo uma plataforma proprietária com IA que transforma como o setor analisa e certifica edifícios sustentáveis.</p>
+  <p class="hero-label" data-i18n="hero_label">Engenharia civil · ESG · Inteligência artificial aplicada</p>
+  <h1 data-i18n="hero_title">Transformo processos manuais em <em>sistemas inteligentes</em> para o setor de sustentabilidade.</h1>
+  <p class="hero-lead" data-i18n="hero_lead">Engenheiro civil com cinco anos de atuação em certificações de sustentabilidade. Coordeno mais de cinquenta projetos LEED para grandes incorporadoras e desenvolvi — sem formação prévia em desenvolvimento de software — uma plataforma proprietária com inteligência artificial que reduziu análises técnicas de aproximadamente duas horas para menos de três minutos por requisito.</p>
+  <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:.5rem">
+    <a href="#simulador" class="nav-cta" style="padding:.7rem 1.4rem;font-size:.8rem" data-i18n="hero_btn_evidence">Ver a evidência</a>
+    <a href="#contato" class="auth-btn" style="padding:.7rem 1.4rem;text-decoration:none;display:inline-flex;align-items:center" data-i18n="hero_btn_cv">Baixar currículo (PT · EN)</a>
+  </div>
   <div class="hero-meta">
     <div class="hero-meta-item">
-      <span class="hero-meta-label">Projetos coordenados</span>
-      <span class="hero-meta-val">50+ certificações LEED</span>
+      <span class="hero-meta-label" data-i18n="hero_m1_label">Projetos coordenados</span>
+      <span class="hero-meta-val" data-i18n="hero_m1_val">50+ certificações LEED</span>
     </div>
     <div class="hero-meta-item">
-      <span class="hero-meta-label">Plataforma com IA</span>
-      <span class="hero-meta-val">2h → 3 min por análise</span>
+      <span class="hero-meta-label" data-i18n="hero_m2_label">Plataforma própria com IA</span>
+      <span class="hero-meta-val">2h → 3 min</span>
     </div>
     <div class="hero-meta-item">
-      <span class="hero-meta-label">Conformidade auditorias</span>
-      <span class="hero-meta-val">100% sem questionamentos</span>
+      <span class="hero-meta-label" data-i18n="hero_m3_label">Conformidade em auditorias</span>
+      <span class="hero-meta-val" data-i18n="hero_m3_val">100% sem questionamentos</span>
     </div>
     <div class="hero-meta-item">
-      <span class="hero-meta-label">Localização</span>
-      <span class="hero-meta-val">Curitiba, PR · Brasil</span>
+      <span class="hero-meta-label" data-i18n="hero_m4_label">Setores construídos do zero</span>
+      <span class="hero-meta-val" data-i18n="hero_m4_val">2 na Forte</span>
     </div>
   </div>
 </section>
@@ -325,37 +375,37 @@ canvas{width:100%;height:580px;display:block;border-radius:8px;cursor:grab;backg
 <!-- ABOUT -->
 <section class="section" id="sobre">
   <div class="section-head">
-    <p class="section-label">Sobre</p>
-    <h2>Engenheiro Civil com vocação para <em>resolver problemas</em> em sistemas complexos.</h2>
+    <p class="section-label" data-i18n="about_label">Perfil</p>
+    <h2 data-i18n="about_title">Engenheiro civil com vocação para <em>construir sistemas</em>, não apenas operá-los.</h2>
   </div>
   <div class="about-grid">
     <div class="about-text">
-      <p>Formado em Engenharia Civil pela <strong>PUC-PR</strong> (2019), com pesquisa científica em geotecnia (PIBITI) e certificação <strong>LEED Green Associate</strong> pelo USGBC. Hoje atuo como Coordenador de Sustentabilidade & Inovação na Forte Desenvolvimento Sustentável.</p>
-      <p>Coordeno simultaneamente <strong>mais de 50 projetos LEED</strong> para grandes incorporadoras brasileiras como GT Building, AG7 e Tishman Speyer. O que me move não é a gestão em si, mas a possibilidade de <strong>identificar ineficiências operacionais</strong> e transformá-las em soluções concretas — unindo visão técnica, domínio do setor e uso estratégico de tecnologia.</p>
-      <p>Atualmente desenvolvo uma <strong>plataforma proprietária com IA</strong> que automatiza análises técnicas e geração de relatórios de conformidade — reduzindo tarefas que levavam ~2 horas para menos de 3 minutos por requisito. Análise bioclimática, classificação automática de espécies vegetais por geolocalização e geração inteligente de relatórios já são parte do que ela faz.</p>
-      <p>Acredito que o futuro da consultoria ESG está em <strong>menos planilhas e mais raciocínio</strong>. Minha aposta é construir as ferramentas que permitem isso.</p>
+      <p data-i18n="about_p1">Formado em Engenharia Civil pela <strong>PUC-PR</strong> (2019), com pesquisa científica em geotecnia (PIBITI) e a certificação <strong>LEED Green Associate</strong> pelo USGBC. Atuo hoje como Coordenador de Sustentabilidade e Inovação na Forte Desenvolvimento Sustentável, em Curitiba.</p>
+      <p data-i18n="about_p2">Ao longo de cinco anos na mesma organização, fui promovido de analista a coordenador e <strong>construí dois setores praticamente sozinho</strong> — as metodologias que desenvolvi tornaram-se a base para a expansão das equipes. Coordeno atualmente <strong>mais de cinquenta projetos LEED</strong> para incorporadoras de grande porte, entre elas GT Building, AG7 e Tishman Speyer.</p>
+      <p data-i18n="about_p3">Meu diferencial não está na gestão em si, mas na capacidade de <strong>reconhecer padrões, identificar ineficiências operacionais e convertê-las em soluções concretas</strong>. Desenvolvi uma plataforma proprietária com inteligência artificial que automatiza análises bioclimáticas, classifica espécies vegetais por geolocalização e gera relatórios de conformidade — reduzindo tarefas de aproximadamente duas horas para menos de três minutos por requisito.</p>
+      <p data-i18n="about_p4">Tenho a convicção de que o futuro da consultoria em sustentabilidade está em <strong>menos trabalho manual e mais raciocínio</strong>. Minha proposta é construir as ferramentas que tornam isso possível.</p>
     </div>
     <div class="about-skills">
-      <p class="skill-cat">Tecnologias</p>
+      <p class="skill-cat" data-i18n="about_sk_tech">Tecnologias</p>
       <div class="skill-list">
         <span class="skill-item">Google AI Studio (vibe-code)</span>
         <span class="skill-item">Python · VBA · Macros</span>
         <span class="skill-item">Autodesk Revit · Navisworks</span>
         <span class="skill-item">BIM 5D · SINAPI</span>
       </div>
-      <p class="skill-cat">Sustentabilidade</p>
+      <p class="skill-cat" data-i18n="about_sk_sust">Sustentabilidade</p>
       <div class="skill-list">
-        <span class="skill-item">Certificações LEED</span>
-        <span class="skill-item">Gestão de emissões GEE</span>
-        <span class="skill-item">Análise bioclimática</span>
-        <span class="skill-item">Indicadores GBC</span>
+        <span class="skill-item" data-i18n="about_sk_leed">Certificações LEED</span>
+        <span class="skill-item" data-i18n="about_sk_gee">Gestão de emissões GEE</span>
+        <span class="skill-item" data-i18n="about_sk_bio">Análise bioclimática</span>
+        <span class="skill-item" data-i18n="about_sk_gbc">Indicadores GBC</span>
       </div>
-      <p class="skill-cat">Idiomas</p>
+      <p class="skill-cat" data-i18n="about_sk_lang">Idiomas</p>
       <div class="skill-list">
-        <span class="skill-item">Português — nativo</span>
-        <span class="skill-item">Inglês — avançado (R/W)</span>
+        <span class="skill-item" data-i18n="about_sk_pt">Português — nativo</span>
+        <span class="skill-item" data-i18n="about_sk_en">Inglês — avançado (leitura e escrita)</span>
       </div>
-      <p class="skill-cat">Credenciais</p>
+      <p class="skill-cat" data-i18n="about_sk_cred">Credenciais</p>
       <div class="skill-list">
         <span class="skill-item">CREA PR-182186/D</span>
         <span class="skill-item">LEED Green Associate · USGBC</span>
@@ -364,85 +414,111 @@ canvas{width:100%;height:580px;display:block;border-radius:8px;cursor:grab;backg
   </div>
 </section>
 
+<!-- ONDE ME DESTACO -->
+<section class="section" id="destaco">
+  <div class="section-head">
+    <p class="section-label" data-i18n="fit_label">Onde me destaco</p>
+    <h2 data-i18n="fit_title">O contexto em que <em>entrego o meu melhor</em>.</h2>
+    <p class="section-lead" data-i18n="fit_lead">Para que quem procura um profissional com o meu perfil reconheça, rapidamente, se há um bom encaixe.</p>
+  </div>
+  <div class="highlight-grid">
+    <div class="highlight-card">
+      <div class="highlight-icon">I</div>
+      <h3 data-i18n="fit_c1_t">Problemas técnicos complexos</h3>
+      <p data-i18n="fit_c1_p">Funciono melhor diante de problemas que exigem profundidade, pesquisa e tempo de raciocínio. Reconheço padrões com facilidade e não descanso enquanto não encontro uma solução sólida — frequentemente antecipando o próximo problema antes que ele apareça.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">II</div>
+      <h3 data-i18n="fit_c2_t">Construção de ferramentas internas</h3>
+      <p data-i18n="fit_c2_p">Meu instinto é eliminar o trabalho repetitivo e manual construindo sistemas que o substituam. Foi assim que desenvolvi a plataforma de IA da consultoria e estruturei dois setores do zero. Dou o melhor de mim quando há espaço para criar, não apenas executar.</p>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">III</div>
+      <h3 data-i18n="fit_c3_t">Autonomia com confiança técnica</h3>
+      <p data-i18n="fit_c3_p">Valorizo liberdade para trabalhar no meu ritmo, com profundidade e responsabilidade sobre o resultado. Entrego com mais qualidade em ambientes que confiam na competência técnica e oferecem retorno construtivo — não em contextos de pressão imediata e respostas apressadas.</p>
+    </div>
+  </div>
+  <div class="fit-bar">
+    <p class="fit-bar-label" data-i18n="fit_bar_label">Tipo de posição que procuro</p>
+    <p class="fit-bar-text" data-i18n="fit_bar_text">Posições de <strong>Solutions Engineer</strong>, <strong>Implementation</strong> ou <strong>especialista de produto e inovação em ESG</strong>, em construtechs, climate techs ou áreas de inovação de incorporadoras com cultura técnica. Disponível para Curitiba (presencial ou híbrido, preferencialmente) e para trabalho remoto, em regime CLT ou PJ. Faço-me notar pela qualidade do trabalho, não por vendê-lo.</p>
+  </div>
+</section>
+
 <!-- EXPERIENCE -->
 <section class="section" id="experiencia">
   <div class="section-head">
-    <p class="section-label">Trajetória</p>
-    <h2>De pesquisador a <em>arquiteto de soluções</em>.</h2>
-    <p class="section-lead">Cinco anos numa empresa, três posições, escopo crescente — do analista que entende o problema técnico ao coordenador que constrói as ferramentas para resolvê-lo.</p>
+    <p class="section-label" data-i18n="path_label">Trajetória</p>
+    <h2 data-i18n="path_title">Curta, com um <em>padrão claro</em>.</h2>
+    <p class="section-lead" data-i18n="path_lead">Em cada lugar por onde passei, tornei-me a pessoa que sistematiza o trabalho — convertendo processos dispersos em métodos replicáveis. Para o histórico completo, o currículo está disponível para download.</p>
   </div>
   <div class="timeline">
     <div class="tl-item">
-      <span class="tl-period">Jan. 2025 — Atual</span>
+      <span class="tl-period" data-i18n="path_p1_period">2025 — atual</span>
       <div class="tl-content">
-        <h3 class="tl-role">Coordenador de Sustentabilidade & Inovação</h3>
+        <h3 class="tl-role" data-i18n="path_p1_role">Coordenador de Sustentabilidade e Inovação</h3>
         <span class="tl-company">Forte Desenvolvimento Sustentável · Curitiba</span>
-        <p class="tl-desc">Coordenação simultânea de 50+ projetos LEED. Desenvolvimento e implementação de plataforma proprietária com IA para automatizar análises técnicas e geração de relatórios de conformidade — eliminando gargalos manuais do processo de certificação.</p>
+        <p class="tl-desc" data-i18n="path_p1_desc">Coordenação simultânea de mais de cinquenta projetos LEED e desenvolvimento da plataforma proprietária com inteligência artificial que automatizou análises bioclimáticas, classificação de espécies e geração de relatórios — hoje uma referência interna de trabalho.</p>
         <div class="tl-tags">
           <span class="tl-tag">LEED</span>
-          <span class="tl-tag">IA aplicada</span>
-          <span class="tl-tag">Liderança técnica</span>
+          <span class="tl-tag" data-i18n="path_tag_ai">IA aplicada</span>
+          <span class="tl-tag" data-i18n="path_tag_lead">Liderança técnica</span>
           <span class="tl-tag">ESG</span>
         </div>
       </div>
     </div>
     <div class="tl-item">
-      <span class="tl-period">Jul. 2023 — Dez. 2024</span>
+      <span class="tl-period" data-i18n="path_p2_period">2021 — 2024</span>
       <div class="tl-content">
-        <h3 class="tl-role">Supervisor de Sustentabilidade</h3>
+        <h3 class="tl-role" data-i18n="path_p2_role">Supervisor e Analista de Sustentabilidade</h3>
         <span class="tl-company">Forte Desenvolvimento Sustentável</span>
-        <p class="tl-desc">Supervisão de equipe multidisciplinar e processos de certificação LEED. Avaliação de riscos e oportunidades de sustentabilidade em projetos. Gestão de auditorias com 100% de conformidade.</p>
+        <p class="tl-desc" data-i18n="path_p2_desc">Evolução de analista a supervisor coordenando processos de certificação LEED. Construí dois setores praticamente sozinho; as metodologias que criei tornaram-se a base da expansão das equipes. Gestão de auditorias com plena conformidade.</p>
       </div>
     </div>
     <div class="tl-item">
-      <span class="tl-period">Jul. 2021 — Jul. 2023</span>
+      <span class="tl-period" data-i18n="path_p3_period">Antes de 2021</span>
       <div class="tl-content">
-        <h3 class="tl-role">Analista de Sustentabilidade</h3>
-        <span class="tl-company">Forte Desenvolvimento Sustentável</span>
-        <p class="tl-desc">Análise de estratégias de redução de emissões GEE e eficiência energética para certificações LEED. Elaboração de relatórios técnicos e apresentações para stakeholders.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-period">Fev. — Jul. 2021</span>
-      <div class="tl-content">
-        <h3 class="tl-role">Gerenciador de Obras</h3>
-        <span class="tl-company">Envision PM</span>
-        <p class="tl-desc">Gestão de obras de grande porte (Loja Atacadão Wenceslau Braz e CD Atacadão Pinhais): cronograma, controle de qualidade, relatórios e resolução de conflitos.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-period">Nov. 2019 — Jun. 2020</span>
-      <div class="tl-content">
-        <h3 class="tl-role">Analista</h3>
-        <span class="tl-company">Trajetória Consultoria · US Global Parts</span>
-        <p class="tl-desc">Pesquisas de viabilidade econômica para exportação de autopeças brasileiras ao mercado americano. Gestão de pipeline via CRM Pipedrive.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-period">Jul. 2018 — Fev. 2019</span>
-      <div class="tl-content">
-        <h3 class="tl-role">Estagiário BIM</h3>
-        <span class="tl-company">Campestrini Estudos e Planejamento</span>
-        <p class="tl-desc">Modelagem 3D em Autodesk Revit e Revit MEP. Compatibilização com Navisworks. Orçamentos BIM 5D com SINAPI.</p>
-      </div>
-    </div>
-    <div class="tl-item">
-      <span class="tl-period">2017 — 2019</span>
-      <div class="tl-content">
-        <h3 class="tl-role">Estagiário de Pesquisa · PIBITI</h3>
-        <span class="tl-company">Institutos Lactec — LAME</span>
-        <p class="tl-desc">Pesquisa em monitoramento em tempo real de encostas e barragens com tecnologia de fibra óptica. Ensaios geotécnicos de laboratório.</p>
+        <h3 class="tl-role" data-i18n="path_p3_role">Obra, modelagem BIM e pesquisa científica</h3>
+        <span class="tl-company">Envision PM · Campestrini · Institutos Lactec</span>
+        <p class="tl-desc" data-i18n="path_p3_desc">Gerenciamento de obras de grande porte (centros de distribuição Atacadão), modelagem 3D e orçamentação BIM 5D, e pesquisa científica (PIBITI) em monitoramento de encostas e barragens por fibra óptica. Uma base técnica multidisciplinar.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CLIENTES -->
+<section class="section" id="clientes">
+  <div class="section-head">
+    <p class="section-label" data-i18n="clients_label">Clientes e escala</p>
+    <h2 data-i18n="clients_title">Projetos para algumas das <em>maiores incorporadoras</em> do país.</h2>
+  </div>
+  <p class="clients-intro" data-i18n="clients_intro">Ao longo da minha trajetória, coordenei e conduzi certificações de sustentabilidade para um portfólio amplo de clientes — de grandes incorporadoras a indústrias, instituições de ensino e grupos imobiliários. A seleção abaixo representa parte desse histórico, organizada por tipo de certificação.</p>
+
+  <div class="clients-scale">
+    <div class="scale-item"><span class="scale-num">50+</span><span class="scale-label" data-i18n="clients_s1">Projetos coordenados</span></div>
+    <div class="scale-item"><span class="scale-num">6</span><span class="scale-label" data-i18n="clients_s2">Tipos de certificação</span></div>
+    <div class="scale-item"><span class="scale-num">100%</span><span class="scale-label" data-i18n="clients_s3">Conformidade em auditorias</span></div>
+  </div>
+
+  <div class="cert-filters" id="cert-filters">
+    <button class="cert-filter active" data-cert="all" data-i18n="clients_f_all">Todos</button>
+    <button class="cert-filter" data-cert="leed">LEED BD+C</button>
+    <button class="cert-filter" data-cert="gbc">GBC Condomínio</button>
+    <button class="cert-filter" data-cert="fitwel">Fitwel</button>
+    <button class="cert-filter" data-cert="edge">EDGE</button>
+    <button class="cert-filter" data-cert="zero">Zero Carbono</button>
+    <button class="cert-filter" data-cert="well">WELL</button>
+  </div>
+
+  <div class="clients-grid" id="clients-grid"></div>
+  <p class="clients-note" data-i18n="clients_note">Lista parcial e ilustrativa do portfólio. Nomes de projetos preservados; foco nos clientes e nas certificações conduzidas.</p>
+</section>
+
 <!-- SIMULADOR / GBC -->
 <section class="section" id="simulador">
   <div class="section-head">
-    <p class="section-label">Demonstração interativa</p>
-    <h2>Simulador GBC de um <em>condomínio paramétrico</em>.</h2>
-    <p class="section-lead">Uma demonstração do tipo de ferramenta que construo: dimensione um empreendimento, ative sistemas sustentáveis e veja em tempo real como a volumetria 3D, os indicadores GBC e a economia anual respondem. Cálculos seguindo NBR, ASHRAE 90.1 e referências do Green Building Council.</p>
+    <p class="evidence-tag" data-i18n="ev_tag">Evidência · 01</p>
+    <h2 data-i18n="ev_title">Simulador GBC de um <em>condomínio paramétrico</em>.</h2>
+    <p class="section-lead" data-i18n="ev_lead">Construído à mão, em JavaScript puro com Three.js, sem dependência de frameworks. É uma demonstração concreta do tipo de ferramenta que desenvolvo: dimensione um empreendimento, ative sistemas sustentáveis e observe, em tempo real, como a volumetria tridimensional, os indicadores GBC e a economia anual respondem. Os cálculos seguem as normas NBR, a ASHRAE 90.1 e as referências do Green Building Council.</p>
   </div>
 
 <div class="wrap" style="padding:0;max-width:none">
@@ -1017,138 +1093,36 @@ canvas{width:100%;height:580px;display:block;border-radius:8px;cursor:grab;backg
 </div>
 </section>
 
-<!-- POSTS -->
-<section class="section" id="posts">
-  <div class="section-head">
-    <p class="section-label">Publicações & Reflexões</p>
-    <h2>Bastidores, projetos e <em>provocações</em> sobre ESG.</h2>
-    <p class="section-lead">Espaço para compartilhar projetos, aprendizados e provocações sobre o futuro da consultoria em sustentabilidade.</p>
-  </div>
-  <div class="posts-controls">
-    <div class="posts-status" id="posts-status">
-      <span id="posts-count">0 publicações</span>
-    </div>
-    <div style="display:flex;gap:.5rem">
-      <button class="auth-btn" id="btn-login">Entrar como autor</button>
-      <button class="auth-btn primary" id="btn-new-post" style="display:none">+ Nova publicação</button>
-      <button class="auth-btn" id="btn-logout" style="display:none">Sair</button>
-    </div>
-  </div>
-  <div class="posts-grid" id="posts-grid">
-    <!-- Posts will be rendered here by JavaScript -->
-  </div>
-</section>
-
-<!-- LOGIN MODAL -->
-<div class="modal-overlay" id="modal-login">
-  <div class="modal">
-    <div class="modal-head">
-      <div>
-        <p class="modal-label">Acesso restrito</p>
-        <h3 class="modal-title">Entrar como autor</h3>
-      </div>
-      <button class="modal-close" data-close>×</button>
-    </div>
-    <form class="modal-form" id="form-login">
-      <div class="modal-field">
-        <label for="login-email">E-mail</label>
-        <input type="email" id="login-email" required autocomplete="username">
-      </div>
-      <div class="modal-field">
-        <label for="login-password">Senha</label>
-        <input type="password" id="login-password" required autocomplete="current-password">
-      </div>
-      <div class="modal-error" id="login-error">Credenciais inválidas. Verifique e-mail e senha.</div>
-      <p class="modal-help">Acesso reservado ao autor do site. Posts são salvos localmente neste navegador.</p>
-      <div class="modal-actions">
-        <button type="button" class="auth-btn" data-close>Cancelar</button>
-        <button type="submit" class="auth-btn primary">Entrar</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- POST EDITOR MODAL -->
-<div class="modal-overlay" id="modal-editor">
-  <div class="modal large">
-    <div class="modal-head">
-      <div>
-        <p class="modal-label" id="editor-label">Nova publicação</p>
-        <h3 class="modal-title" id="editor-title">Compartilhe uma reflexão</h3>
-      </div>
-      <button class="modal-close" data-close>×</button>
-    </div>
-    <form class="modal-form" id="form-post">
-      <input type="hidden" id="post-id">
-      <div class="modal-field">
-        <label for="post-tag">Categoria · tag</label>
-        <input type="text" id="post-tag" placeholder="Ex: Caso técnico · LEED" maxlength="60" required>
-      </div>
-      <div class="modal-field">
-        <label for="post-title">Título</label>
-        <input type="text" id="post-title-input" placeholder="Título da publicação" maxlength="120" required>
-      </div>
-      <div class="modal-field">
-        <label for="post-excerpt">Resumo · aparece no card</label>
-        <textarea id="post-excerpt" placeholder="Breve resumo da publicação (2-3 linhas)" maxlength="300" required></textarea>
-      </div>
-      <div class="modal-field">
-        <label for="post-content">Conteúdo completo</label>
-        <textarea id="post-content" class="long" placeholder="Texto completo da publicação. Quebras de linha são preservadas." required></textarea>
-      </div>
-      <div class="modal-field">
-        <label for="post-readtime">Tempo estimado de leitura</label>
-        <input type="text" id="post-readtime" placeholder="Ex: 6 min" value="5 min">
-      </div>
-      <div class="modal-actions">
-        <button type="button" class="auth-btn" data-close>Cancelar</button>
-        <button type="submit" class="auth-btn primary">Publicar</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- FULL POST VIEW -->
-<div class="post-full" id="post-full">
-  <button class="post-full-close" id="post-full-close">← Voltar</button>
-  <div class="post-full-inner">
-    <p class="post-full-tag" id="full-tag"></p>
-    <h1 class="post-full-title" id="full-title"></h1>
-    <p class="post-full-meta" id="full-meta"></p>
-    <div class="post-full-content" id="full-content"></div>
-  </div>
-</div>
-
 <!-- CONTATO -->
 <section class="section" id="contato">
   <div class="section-head">
-    <p class="section-label">Contato</p>
-    <h2>Vamos conversar sobre <em>sustentabilidade e tecnologia</em>.</h2>
-    <p class="section-lead">Aberto a oportunidades de inovação em ESG, parcerias técnicas em projetos de certificação ou trocas sobre como IA pode transformar a consultoria em sustentabilidade.</p>
+    <p class="section-label" data-i18n="ct_label">Contato</p>
+    <h2 data-i18n="ct_title">Se você acredita que o setor pode <em>funcionar melhor</em>, vamos conversar.</h2>
+    <p class="section-lead" data-i18n="ct_lead">Aberto a posições de Solutions Engineer, Implementation e inovação em ESG, em construtechs, climate techs e áreas de inovação. Respondo melhor por e-mail; o LinkedIn também funciona bem.</p>
   </div>
   <div class="contact-grid">
     <div class="contact-card">
-      <p class="contact-label">Direto</p>
+      <p class="contact-label" data-i18n="ct_direct">Direto</p>
       <p class="contact-line"><a href="mailto:rafael.avila.janz@hotmail.com" class="contact-link">rafael.avila.janz@hotmail.com</a></p>
-      <p class="contact-label">Telefone</p>
+      <p class="contact-label" data-i18n="ct_phone">Telefone</p>
       <p class="contact-line">(41) 9 9151-2323</p>
-      <p class="contact-label">Localização</p>
-      <p class="contact-line" style="margin-bottom:0">Curitiba · Paraná · Brasil</p>
+      <p class="contact-label" data-i18n="ct_loc">Localização</p>
+      <p class="contact-line" style="margin-bottom:0" data-i18n="ct_loc_val">Curitiba · Paraná · Brasil</p>
     </div>
     <div class="contact-card">
-      <p class="contact-label">Redes</p>
+      <p class="contact-label" data-i18n="ct_net">Redes</p>
       <p class="contact-line"><a href="https://linkedin.com/in/rafaelavila-janz" target="_blank" rel="noopener" class="contact-link">linkedin.com/in/rafaelavila-janz</a></p>
-      <p class="contact-label">Repositório</p>
+      <p class="contact-label" data-i18n="ct_repo">Repositório</p>
       <p class="contact-line"><a href="https://github.com/rafaeljanz" target="_blank" rel="noopener" class="contact-link">github.com/rafaeljanz</a></p>
-      <p class="contact-label">Atuação atual</p>
-      <p class="contact-line" style="margin-bottom:0">Coordenador · Forte Desenvolvimento Sustentável</p>
+      <p class="contact-label" data-i18n="ct_cur">Atuação atual</p>
+      <p class="contact-line" style="margin-bottom:0" data-i18n="ct_cur_val">Coordenador · Forte Desenvolvimento Sustentável</p>
     </div>
   </div>
 </section>
 
 <footer>
-  <p class="foot-text">© 2025 <span class="foot-name">Rafael Ávila Janz</span> · Engenharia, sustentabilidade e código.</p>
-  <p class="foot-text" style="margin-top:.4rem;font-size:.7rem">Construído à mão, com DM Serif Display & DM Sans.</p>
+  <p class="foot-text"><span class="foot-name">Rafael Ávila Janz</span> · <span data-i18n="foot_tag">Engenharia, sustentabilidade e código.</span></p>
+  <p class="foot-text" style="margin-top:.4rem;font-size:.7rem" data-i18n="foot_built">Construído à mão, com DM Serif Display e DM Sans.</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -2412,245 +2386,227 @@ document.querySelectorAll('.tab').forEach(btn=>{
 // initial build
 compute();
 
-// ═══════════════════════════════════════════════════════
-// AUTH + POSTS SYSTEM (localStorage based)
-// ═══════════════════════════════════════════════════════
 
-const AUTH = {
-  email: 'rafael.avila.janz@hotmail.com',
-  password: 'R@f@3l_1_janz',
-  sessionKey: 'rj_auth',
-  postsKey: 'rj_posts'
-};
-
-// Default posts (shown when no localStorage entries exist)
-const DEFAULT_POSTS = [
-  {id:'d1', tag:'Caso técnico · LEED', title:'Coordenando 50+ certificações LEED simultaneamente', excerpt:'O processo de gestão de portfólio na Forte Desenvolvimento Sustentável: como mantemos 100% de conformidade em auditorias com clientes como GT Building, AG7 e Tishman Speyer.', content:'', readtime:'6 min', date:'Em breve', isDefault:true},
-  {id:'d2', tag:'Plataforma · IA Aplicada', title:'Da planilha à plataforma — automatizando análises bioclimáticas', excerpt:'A jornada de construção de uma ferramenta com IA que reduz uma análise de 2 horas para menos de 3 minutos. Decisões técnicas, vibe-coding com Google AI Studio, e os tradeoffs no caminho.', content:'', readtime:'8 min', date:'Em breve', isDefault:true},
-  {id:'d3', tag:'Paisagismo · Biodiversidade', title:'Classificação automática de espécies vegetais por geolocalização', excerpt:'Como ensinamos a plataforma a identificar espécies nativas, exóticas e invasoras em projetos de paisagismo conforme a região do empreendimento. Aplicação prática para créditos GBC.', content:'', readtime:'7 min', date:'Em breve', isDefault:true},
-  {id:'d4', tag:'Provocação · Setor', title:'O futuro da consultoria ESG é menos planilha, mais raciocínio', excerpt:'Reflexão sobre por que tanto tempo se gasta em coleta manual de dados no setor de sustentabilidade — e o que precisamos construir para que o consultor volte a focar no problema, não no formulário.', content:'', readtime:'5 min', date:'Em breve', isDefault:true},
-  {id:'d5', tag:'Indicadores GBC', title:'Calculadora de indicadores: água, energia e carbono integrados', excerpt:'Como construí um motor de cálculo que aplica fórmulas NBR e ASHRAE 90.1 para gerar indicadores de eficiência hídrica, energética e ambiental em condomínios verticais — e por que precisa ser open source.', content:'', readtime:'9 min', date:'Em breve', isDefault:true},
+</script>
+<script>
+// ═══════════════════════════════════════════════════════
+// CLIENTES — dados reais (portfólio Forte) + filtro
+// ═══════════════════════════════════════════════════════
+const CLIENTS = [
+  {n:"GT Building", c:["leed","gbc","fitwel","edge","zero"]},
+  {n:"AG7", c:["gbc"]},
+  {n:"Tishman Speyer", c:["leed"]},
+  {n:"Grupo Saes", c:["gbc"]},
+  {n:"Sunprime", c:["gbc","leed"]},
+  {n:"FIEP · SENAI", c:["leed"]},
+  {n:"Electrolux", c:["leed"]},
+  {n:"PUCPR", c:["leed"]},
+  {n:"Torresani", c:["gbc"]},
+  {n:"MDGP", c:["gbc"]},
+  {n:"JN", c:["gbc"]},
+  {n:"Investcorp · Halsten", c:["gbc"]},
+  {n:"City Soluções Urbanas", c:["leed","edge"]},
+  {n:"Nazca", c:["fitwel"]},
+  {n:"Vokkan", c:["leed"]},
+  {n:"ABC Empreendimentos", c:["fitwel","gbc"]},
+  {n:"Famex", c:["gbc"]},
+  {n:"Triad", c:["fitwel","gbc"]},
+  {n:"CP8 Empreendimentos", c:["leed","well"]},
+  {n:"Adventista", c:["leed","well"]},
+  {n:"Gafisa", c:["fitwel"]},
+  {n:"Embaixada da Itália", c:["edge"]},
+  {n:"Level", c:["leed"]},
+  {n:"GND", c:["leed"]},
+  {n:"Marista", c:["leed"]},
+  {n:"Teerra", c:["gbc"]},
+  {n:"M Dias Branco", c:["leed"]},
+  {n:"Valmet", c:["leed"]},
 ];
 
-function isLogged(){
-  return localStorage.getItem(AUTH.sessionKey) === '1';
-}
+const CERT_LABELS = {
+  leed:"LEED BD+C", gbc:"GBC Condomínio", fitwel:"Fitwel",
+  edge:"EDGE", zero:"Zero Carbono", well:"WELL"
+};
 
-function getPosts(){
-  try{
-    const stored = localStorage.getItem(AUTH.postsKey);
-    if(stored) return JSON.parse(stored);
-  }catch(e){console.warn('Failed to read posts',e)}
-  return [...DEFAULT_POSTS];
-}
-
-function savePosts(posts){
-  localStorage.setItem(AUTH.postsKey, JSON.stringify(posts));
-}
-
-function fmtDate(date){
-  const d = new Date(date);
-  if(isNaN(d.getTime())) return date;
-  return d.toLocaleDateString('pt-BR', {day:'numeric', month:'short', year:'numeric'});
-}
-
-function getPostInitial(post, idx){
-  // Pick a 2-letter or single-char visual marker
-  const num = String(idx+1).padStart(2,'0');
-  return num;
-}
-
-function renderPosts(){
-  const grid = document.getElementById('posts-grid');
-  const posts = getPosts();
-  const logged = isLogged();
-  const countEl = document.getElementById('posts-count');
-  const realCount = posts.filter(p=>!p.isDefault).length;
-  countEl.textContent = realCount === 0
-    ? `${posts.length} publicações em construção`
-    : `${realCount} ${realCount===1?'publicação':'publicações'}`;
-
-  if(posts.length === 0){
-    grid.innerHTML = `<div class="post-empty"><p class="post-empty-text">Nenhuma publicação ainda. Use o botão "Entrar como autor" para começar.</p></div>`;
-    return;
-  }
-
-  grid.innerHTML = posts.map((p,i)=>{
-    const isReal = !p.isDefault;
-    const dateText = isReal ? fmtDate(p.date) : 'Em breve';
-    const actions = (logged && isReal) ? `
-      <div class="post-actions">
-        <button class="post-action-btn" data-edit="${p.id}">Editar</button>
-        <button class="post-action-btn delete" data-delete="${p.id}">Apagar</button>
-      </div>` : '';
-    return `
-      <article class="post-card" data-open="${p.id}">
-        ${actions}
-        <div class="post-img"><span class="post-img-icon">${getPostInitial(p,i)}</span></div>
-        <div class="post-body">
-          <p class="post-tag">${escapeHtml(p.tag)}</p>
-          <h3 class="post-title">${escapeHtml(p.title)}</h3>
-          <p class="post-excerpt">${escapeHtml(p.excerpt)}</p>
-          <div class="post-meta"><span>${dateText}</span><span>Leitura · ${escapeHtml(p.readtime||'5 min')}</span></div>
-        </div>
-      </article>`;
+function renderClients(filter){
+  const grid = document.getElementById('clients-grid');
+  if(!grid) return;
+  grid.innerHTML = CLIENTS.map(cl=>{
+    const show = filter==='all' || cl.c.includes(filter);
+    const certs = cl.c.map(k=>`<span class="client-cert">${CERT_LABELS[k]||k}</span>`).join('');
+    return `<div class="client-card${show?'':' hidden'}"><div class="client-name">${cl.n}</div><div class="client-certs">${certs}</div></div>`;
   }).join('');
 }
 
-function escapeHtml(str){
-  if(!str) return '';
-  const div = document.createElement('div');
-  div.textContent = str;
-  return div.innerHTML;
-}
-
-function updateAuthUI(){
-  const logged = isLogged();
-  document.getElementById('btn-login').style.display = logged ? 'none' : 'inline-block';
-  document.getElementById('btn-new-post').style.display = logged ? 'inline-block' : 'none';
-  document.getElementById('btn-logout').style.display = logged ? 'inline-block' : 'none';
-}
-
-function openModal(id){ document.getElementById(id).classList.add('on'); }
-function closeModals(){ document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('on')); }
-
-// Auth handlers
-document.getElementById('btn-login').addEventListener('click', ()=>{
-  document.getElementById('login-error').classList.remove('on');
-  document.getElementById('form-login').reset();
-  openModal('modal-login');
-});
-
-document.getElementById('btn-logout').addEventListener('click', ()=>{
-  if(confirm('Sair da conta? Posts permanecem salvos neste navegador.')){
-    localStorage.removeItem(AUTH.sessionKey);
-    updateAuthUI();
-    renderPosts();
-  }
-});
-
-document.getElementById('form-login').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const email = document.getElementById('login-email').value.trim();
-  const pwd = document.getElementById('login-password').value;
-  if(email === AUTH.email && pwd === AUTH.password){
-    localStorage.setItem(AUTH.sessionKey, '1');
-    closeModals();
-    updateAuthUI();
-    renderPosts();
-  }else{
-    document.getElementById('login-error').classList.add('on');
-  }
-});
-
-// Editor handlers
-document.getElementById('btn-new-post').addEventListener('click', ()=>{
-  if(!isLogged()){ openModal('modal-login'); return; }
-  document.getElementById('form-post').reset();
-  document.getElementById('post-id').value = '';
-  document.getElementById('editor-label').textContent = 'Nova publicação';
-  document.getElementById('editor-title').textContent = 'Compartilhe uma reflexão';
-  openModal('modal-editor');
-});
-
-document.getElementById('form-post').addEventListener('submit', (e)=>{
-  e.preventDefault();
-  if(!isLogged()) return;
-  const id = document.getElementById('post-id').value;
-  const post = {
-    id: id || ('p'+Date.now()),
-    tag: document.getElementById('post-tag').value.trim(),
-    title: document.getElementById('post-title-input').value.trim(),
-    excerpt: document.getElementById('post-excerpt').value.trim(),
-    content: document.getElementById('post-content').value.trim(),
-    readtime: document.getElementById('post-readtime').value.trim() || '5 min',
-    date: id ? (getPosts().find(p=>p.id===id)?.date || new Date().toISOString()) : new Date().toISOString(),
-    isDefault: false
-  };
-  let posts = getPosts().filter(p=>!p.isDefault);
-  if(id){
-    posts = posts.map(p=>p.id===id ? post : p);
-  }else{
-    posts.unshift(post);
-  }
-  savePosts(posts);
-  closeModals();
-  renderPosts();
-});
-
-// Grid event delegation (open / edit / delete)
-document.getElementById('posts-grid').addEventListener('click', (e)=>{
-  const editId = e.target.closest('[data-edit]')?.dataset.edit;
-  const deleteId = e.target.closest('[data-delete]')?.dataset.delete;
-  const openId = e.target.closest('[data-open]')?.dataset.open;
-
-  if(editId){
-    e.stopPropagation();
-    const post = getPosts().find(p=>p.id===editId);
-    if(!post) return;
-    document.getElementById('post-id').value = post.id;
-    document.getElementById('post-tag').value = post.tag;
-    document.getElementById('post-title-input').value = post.title;
-    document.getElementById('post-excerpt').value = post.excerpt;
-    document.getElementById('post-content').value = post.content;
-    document.getElementById('post-readtime').value = post.readtime || '5 min';
-    document.getElementById('editor-label').textContent = 'Editar publicação';
-    document.getElementById('editor-title').textContent = 'Atualizar texto';
-    openModal('modal-editor');
-    return;
-  }
-  if(deleteId){
-    e.stopPropagation();
-    if(confirm('Apagar esta publicação? Esta ação não pode ser desfeita.')){
-      const posts = getPosts().filter(p=>!p.isDefault && p.id !== deleteId);
-      savePosts(posts);
-      renderPosts();
-    }
-    return;
-  }
-  if(openId){
-    const post = getPosts().find(p=>p.id===openId);
-    if(!post) return;
-    if(post.isDefault){
-      alert('Esta publicação ainda está em desenvolvimento. Volte em breve!');
-      return;
-    }
-    document.getElementById('full-tag').textContent = post.tag;
-    document.getElementById('full-title').textContent = post.title;
-    document.getElementById('full-meta').textContent = `${fmtDate(post.date)} · Leitura · ${post.readtime || '5 min'}`;
-    document.getElementById('full-content').textContent = post.content;
-    document.getElementById('post-full').classList.add('on');
-    document.body.style.overflow = 'hidden';
-  }
-});
-
-document.getElementById('post-full-close').addEventListener('click', ()=>{
-  document.getElementById('post-full').classList.remove('on');
-  document.body.style.overflow = '';
-});
-
-// Modal close handlers
-document.querySelectorAll('[data-close]').forEach(btn=>{
-  btn.addEventListener('click', closeModals);
-});
-document.querySelectorAll('.modal-overlay').forEach(m=>{
-  m.addEventListener('click', e=>{
-    if(e.target === m) closeModals();
+function updateCertCounts(){
+  document.querySelectorAll('.cert-filter').forEach(btn=>{
+    const k = btn.dataset.cert;
+    const n = k==='all' ? CLIENTS.length : CLIENTS.filter(c=>c.c.includes(k)).length;
+    let cnt = btn.querySelector('.cert-count');
+    if(!cnt){ cnt=document.createElement('span'); cnt.className='cert-count'; btn.appendChild(cnt); }
+    cnt.textContent = n;
   });
-});
-document.addEventListener('keydown', e=>{
-  if(e.key === 'Escape'){
-    closeModals();
-    if(document.getElementById('post-full').classList.contains('on')){
-      document.getElementById('post-full').classList.remove('on');
-      document.body.style.overflow = '';
-    }
-  }
+}
+
+document.getElementById('cert-filters')?.addEventListener('click', e=>{
+  const btn = e.target.closest('.cert-filter');
+  if(!btn) return;
+  document.querySelectorAll('.cert-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderClients(btn.dataset.cert);
 });
 
-// Initialize
-updateAuthUI();
-renderPosts();
+renderClients('all');
+updateCertCounts();
+
+// ═══════════════════════════════════════════════════════
+// i18n — PT / EN
+// ═══════════════════════════════════════════════════════
+const I18N = {
+  pt: {
+    brand_sub:"Engenharia · Sistemas internos para sustentabilidade",
+    nav_about:"Perfil", nav_fit:"Onde me destaco", nav_path:"Trajetória",
+    nav_clients:"Clientes", nav_evidence:"Evidência", nav_contact:"Contato",
+    hero_label:"Engenharia civil · ESG · Inteligência artificial aplicada",
+    hero_title:"Transformo processos manuais em <em>sistemas inteligentes</em> para o setor de sustentabilidade.",
+    hero_lead:"Engenheiro civil com cinco anos de atuação em certificações de sustentabilidade. Coordeno mais de cinquenta projetos LEED para grandes incorporadoras e desenvolvi — sem formação prévia em desenvolvimento de software — uma plataforma proprietária com inteligência artificial que reduziu análises técnicas de aproximadamente duas horas para menos de três minutos por requisito.",
+    hero_btn_evidence:"Ver a evidência", hero_btn_cv:"Baixar currículo (PT · EN)",
+    hero_m1_label:"Projetos coordenados", hero_m1_val:"50+ certificações LEED",
+    hero_m2_label:"Plataforma própria com IA",
+    hero_m3_label:"Conformidade em auditorias", hero_m3_val:"100% sem questionamentos",
+    hero_m4_label:"Setores construídos do zero", hero_m4_val:"2 na Forte",
+    about_label:"Perfil",
+    about_title:"Engenheiro civil com vocação para <em>construir sistemas</em>, não apenas operá-los.",
+    about_p1:"Formado em Engenharia Civil pela <strong>PUC-PR</strong> (2019), com pesquisa científica em geotecnia (PIBITI) e a certificação <strong>LEED Green Associate</strong> pelo USGBC. Atuo hoje como Coordenador de Sustentabilidade e Inovação na Forte Desenvolvimento Sustentável, em Curitiba.",
+    about_p2:"Ao longo de cinco anos na mesma organização, fui promovido de analista a coordenador e <strong>construí dois setores praticamente sozinho</strong> — as metodologias que desenvolvi tornaram-se a base para a expansão das equipes. Coordeno atualmente <strong>mais de cinquenta projetos LEED</strong> para incorporadoras de grande porte, entre elas GT Building, AG7 e Tishman Speyer.",
+    about_p3:"Meu diferencial não está na gestão em si, mas na capacidade de <strong>reconhecer padrões, identificar ineficiências operacionais e convertê-las em soluções concretas</strong>. Desenvolvi uma plataforma proprietária com inteligência artificial que automatiza análises bioclimáticas, classifica espécies vegetais por geolocalização e gera relatórios de conformidade — reduzindo tarefas de aproximadamente duas horas para menos de três minutos por requisito.",
+    about_p4:"Tenho a convicção de que o futuro da consultoria em sustentabilidade está em <strong>menos trabalho manual e mais raciocínio</strong>. Minha proposta é construir as ferramentas que tornam isso possível.",
+    about_sk_tech:"Tecnologias", about_sk_sust:"Sustentabilidade",
+    about_sk_leed:"Certificações LEED", about_sk_gee:"Gestão de emissões GEE",
+    about_sk_bio:"Análise bioclimática", about_sk_gbc:"Indicadores GBC",
+    about_sk_lang:"Idiomas", about_sk_pt:"Português — nativo",
+    about_sk_en:"Inglês — avançado (leitura e escrita)", about_sk_cred:"Credenciais",
+    fit_label:"Onde me destaco", fit_title:"O contexto em que <em>entrego o meu melhor</em>.",
+    fit_lead:"Para que quem procura um profissional com o meu perfil reconheça, rapidamente, se há um bom encaixe.",
+    fit_c1_t:"Problemas técnicos complexos",
+    fit_c1_p:"Funciono melhor diante de problemas que exigem profundidade, pesquisa e tempo de raciocínio. Reconheço padrões com facilidade e não descanso enquanto não encontro uma solução sólida — frequentemente antecipando o próximo problema antes que ele apareça.",
+    fit_c2_t:"Construção de ferramentas internas",
+    fit_c2_p:"Meu instinto é eliminar o trabalho repetitivo e manual construindo sistemas que o substituam. Foi assim que desenvolvi a plataforma de IA da consultoria e estruturei dois setores do zero. Dou o melhor de mim quando há espaço para criar, não apenas executar.",
+    fit_c3_t:"Autonomia com confiança técnica",
+    fit_c3_p:"Valorizo liberdade para trabalhar no meu ritmo, com profundidade e responsabilidade sobre o resultado. Entrego com mais qualidade em ambientes que confiam na competência técnica e oferecem retorno construtivo — não em contextos de pressão imediata e respostas apressadas.",
+    fit_bar_label:"Tipo de posição que procuro",
+    fit_bar_text:"Posições de <strong>Solutions Engineer</strong>, <strong>Implementation</strong> ou <strong>especialista de produto e inovação em ESG</strong>, em construtechs, climate techs ou áreas de inovação de incorporadoras com cultura técnica. Disponível para Curitiba (presencial ou híbrido, preferencialmente) e para trabalho remoto, em regime CLT ou PJ. Faço-me notar pela qualidade do trabalho, não por vendê-lo.",
+    path_label:"Trajetória", path_title:"Curta, com um <em>padrão claro</em>.",
+    path_lead:"Em cada lugar por onde passei, tornei-me a pessoa que sistematiza o trabalho — convertendo processos dispersos em métodos replicáveis. Para o histórico completo, o currículo está disponível para download.",
+    path_p1_period:"2025 — atual", path_p1_role:"Coordenador de Sustentabilidade e Inovação",
+    path_p1_desc:"Coordenação simultânea de mais de cinquenta projetos LEED e desenvolvimento da plataforma proprietária com inteligência artificial que automatizou análises bioclimáticas, classificação de espécies e geração de relatórios — hoje uma referência interna de trabalho.",
+    path_tag_ai:"IA aplicada", path_tag_lead:"Liderança técnica",
+    path_p2_period:"2021 — 2024", path_p2_role:"Supervisor e Analista de Sustentabilidade",
+    path_p2_desc:"Evolução de analista a supervisor coordenando processos de certificação LEED. Construí dois setores praticamente sozinho; as metodologias que criei tornaram-se a base da expansão das equipes. Gestão de auditorias com plena conformidade.",
+    path_p3_period:"Antes de 2021", path_p3_role:"Obra, modelagem BIM e pesquisa científica",
+    path_p3_desc:"Gerenciamento de obras de grande porte (centros de distribuição Atacadão), modelagem 3D e orçamentação BIM 5D, e pesquisa científica (PIBITI) em monitoramento de encostas e barragens por fibra óptica. Uma base técnica multidisciplinar.",
+    clients_label:"Clientes e escala",
+    clients_title:"Projetos para algumas das <em>maiores incorporadoras</em> do país.",
+    clients_intro:"Ao longo da minha trajetória, coordenei e conduzi certificações de sustentabilidade para um portfólio amplo de clientes — de grandes incorporadoras a indústrias, instituições de ensino e grupos imobiliários. A seleção abaixo representa parte desse histórico, organizada por tipo de certificação.",
+    clients_s1:"Projetos coordenados", clients_s2:"Tipos de certificação", clients_s3:"Conformidade em auditorias",
+    clients_f_all:"Todos",
+    clients_note:"Lista parcial e ilustrativa do portfólio. Nomes de projetos preservados; foco nos clientes e nas certificações conduzidas.",
+    ev_tag:"Evidência · 01", ev_title:"Simulador GBC de um <em>condomínio paramétrico</em>.",
+    ev_lead:"Construído à mão, em JavaScript puro com Three.js, sem dependência de frameworks. É uma demonstração concreta do tipo de ferramenta que desenvolvo: dimensione um empreendimento, ative sistemas sustentáveis e observe, em tempo real, como a volumetria tridimensional, os indicadores GBC e a economia anual respondem. Os cálculos seguem as normas NBR, a ASHRAE 90.1 e as referências do Green Building Council.",
+    ct_label:"Contato", ct_title:"Se você acredita que o setor pode <em>funcionar melhor</em>, vamos conversar.",
+    ct_lead:"Aberto a posições de Solutions Engineer, Implementation e inovação em ESG, em construtechs, climate techs e áreas de inovação. Respondo melhor por e-mail; o LinkedIn também funciona bem.",
+    ct_direct:"Direto", ct_phone:"Telefone", ct_loc:"Localização", ct_loc_val:"Curitiba · Paraná · Brasil",
+    ct_net:"Redes", ct_repo:"Repositório", ct_cur:"Atuação atual",
+    ct_cur_val:"Coordenador · Forte Desenvolvimento Sustentável",
+    foot_tag:"Engenharia, sustentabilidade e código.",
+    foot_built:"Construído à mão, com DM Serif Display e DM Sans."
+  },
+  en: {
+    brand_sub:"Engineering · Internal systems for sustainability",
+    nav_about:"Profile", nav_fit:"Where I excel", nav_path:"Career",
+    nav_clients:"Clients", nav_evidence:"Evidence", nav_contact:"Contact",
+    hero_label:"Civil engineering · ESG · Applied artificial intelligence",
+    hero_title:"I turn manual processes into <em>intelligent systems</em> for the sustainability sector.",
+    hero_lead:"Civil engineer with five years of experience in sustainability certifications. I coordinate more than fifty LEED projects for major real-estate developers and built — with no prior background in software development — a proprietary AI platform that cut technical analyses from roughly two hours to under three minutes per requirement.",
+    hero_btn_evidence:"See the evidence", hero_btn_cv:"Download CV (PT · EN)",
+    hero_m1_label:"Projects coordinated", hero_m1_val:"50+ LEED certifications",
+    hero_m2_label:"Proprietary AI platform",
+    hero_m3_label:"Audit compliance", hero_m3_val:"100% with no objections",
+    hero_m4_label:"Departments built from scratch", hero_m4_val:"2 at Forte",
+    about_label:"Profile",
+    about_title:"A civil engineer with a calling to <em>build systems</em>, not merely operate them.",
+    about_p1:"Civil Engineering graduate from <strong>PUC-PR</strong> (2019), with scientific research in geotechnics (PIBITI) and the <strong>LEED Green Associate</strong> credential from the USGBC. I currently serve as Sustainability and Innovation Coordinator at Forte Desenvolvimento Sustentável, in Curitiba, Brazil.",
+    about_p2:"Over five years at the same organization, I was promoted from analyst to coordinator and <strong>built two departments almost single-handedly</strong> — the methodologies I developed became the foundation for the teams' expansion. I currently coordinate <strong>more than fifty LEED projects</strong> for large developers, including GT Building, AG7 and Tishman Speyer.",
+    about_p3:"My strength lies not in management itself, but in the ability to <strong>recognise patterns, identify operational inefficiencies and turn them into concrete solutions</strong>. I developed a proprietary AI platform that automates bioclimatic analyses, classifies plant species by geolocation and generates compliance reports — reducing tasks from roughly two hours to under three minutes per requirement.",
+    about_p4:"I firmly believe the future of sustainability consulting lies in <strong>less manual work and more reasoning</strong>. My proposal is to build the tools that make this possible.",
+    about_sk_tech:"Technologies", about_sk_sust:"Sustainability",
+    about_sk_leed:"LEED certifications", about_sk_gee:"GHG emissions management",
+    about_sk_bio:"Bioclimatic analysis", about_sk_gbc:"GBC indicators",
+    about_sk_lang:"Languages", about_sk_pt:"Portuguese — native",
+    about_sk_en:"English — advanced (reading and writing)", about_sk_cred:"Credentials",
+    fit_label:"Where I excel", fit_title:"The context where I <em>do my best work</em>.",
+    fit_lead:"So that anyone looking for a professional with my profile can quickly tell whether there is a good fit.",
+    fit_c1_t:"Complex technical problems",
+    fit_c1_p:"I work best on problems that demand depth, research and time to think. I recognise patterns easily and won't rest until I find a solid solution — often anticipating the next problem before it arises.",
+    fit_c2_t:"Building internal tools",
+    fit_c2_p:"My instinct is to eliminate repetitive, manual work by building systems that replace it. That is how I developed the consultancy's AI platform and structured two departments from scratch. I give my best where there is room to create, not merely to execute.",
+    fit_c3_t:"Autonomy with technical trust",
+    fit_c3_p:"I value the freedom to work at my own pace, with depth and ownership of the outcome. I deliver higher quality in environments that trust technical competence and offer constructive feedback — not in settings of immediate pressure and rushed answers.",
+    fit_bar_label:"The kind of role I'm looking for",
+    fit_bar_text:"<strong>Solutions Engineer</strong>, <strong>Implementation</strong> or <strong>ESG product and innovation specialist</strong> roles, at construtechs, climate techs or innovation teams within developers that have a technical culture. Available for Curitiba (preferably on-site or hybrid) and for remote work, under either employment or contractor arrangements. I make myself known through the quality of my work, not by selling it.",
+    path_label:"Career", path_title:"Short, with a <em>clear pattern</em>.",
+    path_lead:"In every place I've worked, I became the person who systematises the work — turning scattered processes into repeatable methods. The full history is available in the downloadable CV.",
+    path_p1_period:"2025 — present", path_p1_role:"Sustainability and Innovation Coordinator",
+    path_p1_desc:"Simultaneous coordination of more than fifty LEED projects and development of the proprietary AI platform that automated bioclimatic analyses, species classification and report generation — now an internal benchmark for how the work is done.",
+    path_tag_ai:"Applied AI", path_tag_lead:"Technical leadership",
+    path_p2_period:"2021 — 2024", path_p2_role:"Sustainability Supervisor and Analyst",
+    path_p2_desc:"Progression from analyst to supervisor coordinating LEED certification processes. I built two departments almost single-handedly; the methodologies I created became the foundation for the teams' expansion. Audit management with full compliance.",
+    path_p3_period:"Before 2021", path_p3_role:"Construction, BIM modelling and scientific research",
+    path_p3_desc:"Management of large-scale construction sites (Atacadão distribution centres), 3D modelling and BIM 5D cost estimation, and scientific research (PIBITI) on real-time monitoring of slopes and dams via fibre optics. A multidisciplinary technical foundation.",
+    clients_label:"Clients and scale",
+    clients_title:"Projects for some of the country's <em>largest developers</em>.",
+    clients_intro:"Throughout my career I have coordinated and led sustainability certifications for a broad portfolio of clients — from major developers to industries, educational institutions and real-estate groups. The selection below represents part of that history, organised by certification type.",
+    clients_s1:"Projects coordinated", clients_s2:"Certification types", clients_s3:"Audit compliance",
+    clients_f_all:"All",
+    clients_note:"Partial, illustrative portfolio list. Project names withheld; focus on clients and certifications delivered.",
+    ev_tag:"Evidence · 01", ev_title:"A GBC simulator of a <em>parametric residential complex</em>.",
+    ev_lead:"Built by hand, in vanilla JavaScript with Three.js, with no framework dependencies. It is a concrete demonstration of the kind of tool I develop: size a development, activate sustainable systems and watch, in real time, how the 3D massing, the GBC indicators and the annual savings respond. Calculations follow Brazilian NBR standards, ASHRAE 90.1 and Green Building Council references.",
+    ct_label:"Contact", ct_title:"If you believe the sector can <em>work better</em>, let's talk.",
+    ct_lead:"Open to Solutions Engineer, Implementation and ESG innovation roles at construtechs, climate techs and innovation teams. I respond best by email; LinkedIn also works well.",
+    ct_direct:"Direct", ct_phone:"Phone", ct_loc:"Location", ct_loc_val:"Curitiba · Paraná · Brazil",
+    ct_net:"Networks", ct_repo:"Repository", ct_cur:"Current role",
+    ct_cur_val:"Coordinator · Forte Desenvolvimento Sustentável",
+    foot_tag:"Engineering, sustainability and code.",
+    foot_built:"Built by hand, with DM Serif Display and DM Sans."
+  }
+};
+
+function applyLang(lang){
+  const dict = I18N[lang] || I18N.pt;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.lang = (lang==='en') ? 'en' : 'pt-BR';
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===lang);
+  });
+  try{ localStorage.setItem('rj_lang', lang); }catch(e){}
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=> applyLang(btn.dataset.lang));
+});
+
+(function initLang(){
+  let lang = 'pt';
+  try{
+    const saved = localStorage.getItem('rj_lang');
+    if(saved){ lang = saved; }
+    else if((navigator.language||'').toLowerCase().startsWith('en')){ lang = 'en'; }
+  }catch(e){}
+  applyLang(lang);
+})();
 
 </script>
 </body>
