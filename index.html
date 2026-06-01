@@ -494,19 +494,22 @@ canvas{width:100%;height:580px;display:block;border-radius:8px;cursor:grab;backg
   <p class="clients-intro" data-i18n="clients_intro">Ao longo da minha trajetória, coordenei e conduzi certificações de sustentabilidade para um portfólio amplo de clientes — de grandes incorporadoras a indústrias, instituições de ensino e grupos imobiliários. A seleção abaixo representa parte desse histórico, organizada por tipo de certificação.</p>
 
   <div class="clients-scale">
-    <div class="scale-item"><span class="scale-num">50+</span><span class="scale-label" data-i18n="clients_s1">Projetos coordenados</span></div>
-    <div class="scale-item"><span class="scale-num">6</span><span class="scale-label" data-i18n="clients_s2">Tipos de certificação</span></div>
+    <div class="scale-item"><span class="scale-num">120+</span><span class="scale-label" data-i18n="clients_s1">Projetos coordenados</span></div>
+    <div class="scale-item"><span class="scale-num">8</span><span class="scale-label" data-i18n="clients_s2">Tipos de certificação</span></div>
     <div class="scale-item"><span class="scale-num">100%</span><span class="scale-label" data-i18n="clients_s3">Conformidade em auditorias</span></div>
   </div>
 
   <div class="cert-filters" id="cert-filters">
     <button class="cert-filter active" data-cert="all" data-i18n="clients_f_all">Todos</button>
-    <button class="cert-filter" data-cert="leed">LEED BD+C</button>
+    <button class="cert-filter" data-cert="leed">LEED</button>
     <button class="cert-filter" data-cert="gbc">GBC Condomínio</button>
+    <button class="cert-filter" data-cert="gbccasa">GBC Casa</button>
     <button class="cert-filter" data-cert="fitwel">Fitwel</button>
     <button class="cert-filter" data-cert="edge">EDGE</button>
     <button class="cert-filter" data-cert="zero">Zero Carbono</button>
     <button class="cert-filter" data-cert="well">WELL</button>
+    <button class="cert-filter" data-cert="bio">GBC Biodiversidade</button>
+    <button class="cert-filter" data-cert="life">GBC Life</button>
   </div>
 
   <div class="clients-grid" id="clients-grid"></div>
@@ -2393,39 +2396,80 @@ compute();
 // CLIENTES — dados reais (portfólio Forte) + filtro
 // ═══════════════════════════════════════════════════════
 const CLIENTS = [
-  {n:"GT Building", c:["leed","gbc","fitwel","edge","zero"]},
-  {n:"AG7", c:["gbc"]},
-  {n:"Tishman Speyer", c:["leed"]},
-  {n:"Grupo Saes", c:["gbc"]},
-  {n:"Sunprime", c:["gbc","leed"]},
-  {n:"FIEP · SENAI", c:["leed"]},
-  {n:"Electrolux", c:["leed"]},
-  {n:"PUCPR", c:["leed"]},
-  {n:"Torresani", c:["gbc"]},
+  {n:"Polaris", c:["gbccasa"]},
+  {n:"Salinet", c:["gbccasa"]},
+  {n:"Quest", c:["gbc"]},
+  {n:"Valor Real", c:["gbc"]},
+  {n:"Floresta Incorporadora", c:["gbc"]},
+  {n:"Cidade dos Lagos", c:["leed"]},
+  {n:"Gafisa", c:["fitwel"]},
+  {n:"TECNA", c:["fitwel"]},
+  {n:"FINDES", c:["leed"]},
+  {n:"Viposa", c:["leed"]},
+  {n:"FIEP", c:["leed"]},
+  {n:"GT Building", c:["bio","edge","fitwel","gbc","leed","life","zero"]},
+  {n:"BOS", c:["gbc"]},
   {n:"MDGP", c:["gbc"]},
   {n:"JN", c:["gbc"]},
-  {n:"Investcorp · Halsten", c:["gbc"]},
-  {n:"City Soluções Urbanas", c:["leed","edge"]},
-  {n:"Nazca", c:["fitwel"]},
+  {n:"Investcorp (Halsten)", c:["gbc","gbccasa"]},
+  {n:"Torresani", c:["gbc"]},
+  {n:"Prima", c:["gbc"]},
+  {n:"Level", c:["leed"]},
   {n:"Vokkan", c:["leed"]},
-  {n:"ABC Empreendimentos", c:["fitwel","gbc"]},
+  {n:"Evo Evolução Urbana", c:["gbc"]},
+  {n:"Séren", c:["gbc","leed"]},
+  {n:"Embaixada da Itália", c:["edge"]},
+  {n:"Vectra", c:["leed"]},
+  {n:"MRM", c:["edge"]},
+  {n:"FG", c:["bio"]},
+  {n:"AG7", c:["gbc"]},
   {n:"Famex", c:["gbc"]},
   {n:"Triad", c:["fitwel","gbc"]},
-  {n:"CP8 Empreendimentos", c:["leed","well"]},
-  {n:"Adventista", c:["leed","well"]},
-  {n:"Gafisa", c:["fitwel"]},
-  {n:"Embaixada da Itália", c:["edge"]},
-  {n:"Level", c:["leed"]},
+  {n:"Sunprime", c:["gbc","leed"]},
+  {n:"CN", c:["gbc"]},
+  {n:"ABC Empreendimentos", c:["bio","fitwel","gbc"]},
   {n:"GND", c:["leed"]},
+  {n:"City Soluções Urbanas", c:["edge","leed"]},
+  {n:"Fundepar", c:["leed"]},
   {n:"Marista", c:["leed"]},
-  {n:"Teerra", c:["gbc"]},
-  {n:"M Dias Branco", c:["leed"]},
+  {n:"Telesil", c:["gbc"]},
+  {n:"Dall Empreendimentos", c:["fitwel"]},
+  {n:"Electrolux", c:["leed"]},
+  {n:"Invescon", c:["leed"]},
+  {n:"Grupo Saes", c:["gbc","leed"]},
+  {n:"Saraiva de Rezende", c:["gbc","leed"]},
+  {n:"Kirchner Empreendimentos", c:["gbc"]},
+  {n:"LOFT", c:["leed"]},
+  {n:"Gran Paradiso", c:["leed"]},
+  {n:"Belmondo", c:["leed"]},
+  {n:"CP8 Empreendimentos", c:["leed","well"]},
+  {n:"Grupo N1", c:["gbc"]},
+  {n:"PZ Empreendimentos", c:["leed"]},
+  {n:"Adventista", c:["leed","well"]},
+  {n:"Nazca", c:["fitwel"]},
+  {n:"RDO", c:["gbc"]},
+  {n:"Wolbito", c:["leed"]},
+  {n:"AS Ramos", c:["gbc"]},
+  {n:"PrimePet", c:["leed"]},
+  {n:"Orla", c:["gbc"]},
+  {n:"Andraus", c:["gbc"]},
+  {n:"Teerra", c:["bio","gbc","life"]},
+  {n:"Bairru", c:["gbc"]},
+  {n:"Atello", c:["gbc"]},
+  {n:"PUCPR", c:["leed"]},
+  {n:"SESC", c:["leed"]},
+  {n:"Haacke", c:["leed"]},
   {n:"Valmet", c:["leed"]},
+  {n:"GIS Brasil", c:["leed"]},
+  {n:"Lucio", c:["leed"]},
+  {n:"M Dias Branco", c:["leed"]},
+  {n:"Marfres", c:["gbc"]},
 ];
 
 const CERT_LABELS = {
-  leed:"LEED BD+C", gbc:"GBC Condomínio", fitwel:"Fitwel",
-  edge:"EDGE", zero:"Zero Carbono", well:"WELL"
+  leed:"LEED", gbc:"GBC Condomínio", gbccasa:"GBC Casa",
+  fitwel:"Fitwel", edge:"EDGE", zero:"Zero Carbono", well:"WELL",
+  bio:"GBC Biodiversidade", life:"GBC Life"
 };
 
 function renderClients(filter){
